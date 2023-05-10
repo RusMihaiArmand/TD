@@ -1,18 +1,26 @@
 var currentRow = null;
 
+//var fs = require('fs');
+var data = {}
+
 function run() {
   new Vue({
     el: '#app',
     data: {
-      users: []
+        users: [],
+        testing: []
     },
     created: function () {
-      this.getUsers().then(response => (this.users = response.data));
+        this.getUsers().then(response => (this.users = response.data));
+        this.getTest().then(response => (this.testing = response.data));
     },
     methods: {
       getUsers: function() {
           return axios.get('http://localhost:3000/users');
-      }
+        },
+        getTest: function () {
+            return axios.get('http://localhost:3000/tester');
+        }
     }
   });
 }
@@ -20,6 +28,57 @@ function run() {
 document.addEventListener('DOMContentLoaded', () => {
   run();
 });
+
+
+function testFunction() {
+    //console.log(5 + 4);
+
+    //data.table = []
+    //for (i = 0; i < 6; i++) {
+    //    var obj = {
+    //        id: i,
+    //        square: i * i
+    //    }
+    //    data.table.push(obj)
+    //}
+
+
+    for (i = 1; i < 2; i++) {
+        var obj = {
+            id: i,
+            square: i * i
+        }
+    }
+    console.log(obj);
+    console.log(JSON.stringify(obj));
+
+
+    data.table = []
+    for (i = 0; i < 6; i++) {
+        var obj = {
+            id: i,
+            square: i * i
+        }
+        data.table.push(obj)
+    }
+
+    axios.put('http://localhost:3000/tester', obj,data);
+
+
+    
+
+    //console.log(data);
+    //console.log(JSON.stringify(data));
+
+    // axios.put('http://localhost:3000/tester', data)  ;
+
+    //fs.writeFile("input.json", JSON.stringify(data), function (err) {
+    //    if (err) throw err;
+    //    console.log('complete');
+    //}
+    //);
+
+}
 
 
 document.querySelector("#book-list").addEventListener("click", (e) => {

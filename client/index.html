@@ -14,7 +14,7 @@
   </head>
 
   <body>
-      <div id="app">
+      <!--<div id="app">
           <div class="title">Users</div>
 
           <ul class="user-list">
@@ -32,7 +32,31 @@
                   </div>
               </li>
           </ul>
+      </div>-->
+
+
+
+      <div id="app">
+          <div class="title">TST</div>
+
+          <ul class="user-list">
+              <li>
+                  <div class="user-row-header">
+                      <div class="user-name">Id</div>
+                      <div class="user-city">Square</div>
+                  </div>
+              </li>
+
+              <li v-for="(tst, index) in testing">
+                  <div class="user-row">
+                      <div>{{ tst.id }}</div>
+                      <div><i>{{ tst.square }}</i></div>
+                  </div>
+              </li>
+          </ul>
       </div>
+
+
 
       <form id="book-form" autocomplete="off">
           <div>
@@ -57,7 +81,7 @@
 
       </form>
 
-      
+
       <div>
           <table id="book-list" class="book-list">
               <thead>
@@ -89,7 +113,10 @@
           </table>
       </div>
 
-      
+
+      <button onclick="testFunction()">Click me</button>
+
+
 
       <script src="src/app.js"></script>
   </body>
