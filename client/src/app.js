@@ -62,7 +62,7 @@ function testFunction() {
         data.table.push(obj)
     }
 
-    axios.put('http://localhost:3000/tester', obj,data);
+    axios.put('http://localhost:3000/tester', obj);
 
 
     

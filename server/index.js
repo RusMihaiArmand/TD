@@ -2,7 +2,7 @@ var api = require('./src/api.js').app;
 var users = require('./src/users.json');
 var tester = require('./src/tester.json');
 var fs = require('fs');
-
+var data2;
 
 api.get('/', function (request, response) {
   response.json('NodeJS REST API');
@@ -26,7 +26,24 @@ api.put('/tester', function (request, response) {
     tester[tester.length] = request.body;
     response.json('tester was saved succesfully');
 
+    //fs.writeFileSync(tester, JSON.stringify(request));
 
+    //fs.writeFileSync('./src/tester.json', JSON.stringify(request.body), function (err) {
+    //    if (err) throw err;
+    //    console.log('complete2');
+    //}
+    //);
+
+
+    fs.writeFileSync('./src/tester.json', JSON.stringify(tester), function (err) {
+        if (err) throw err;
+        console.log('complete1');
+    }
+    );
+
+
+
+    console.log('complete2');
     //thing2(data);
 
 
@@ -38,14 +55,16 @@ api.put('/tester', function (request, response) {
     //);
 
 
-    tester[tester.length] = request.body;
-    response.json('tester was saved succesfully');
+    //tester[tester.length] = request.body;
+    //response.json('tester was saved succesfully');
+
+
 
 });
 
 function thing2(dataa) {
     
-    fs.writeFileSync('./src/tester.json', JSON.stringify(dataa));
+    fs.writeFileSync(tester, JSON.stringify(dataa));
 
 }
 
