@@ -278,16 +278,16 @@ function UpdateUser() {
 
 }
 
-function DeleteUser(){
+function DeleteUser(userN){
 
-    let userN = $('#userName').val();
+    //let userN = $('#userName').val();
 
 
-    $("#comd").html("wait");
+    
 
     axios.delete('http://localhost:3000/users/' + userN).then(
         (response) => {
-            $("#comd").html("ready");
+            $("#comd").html("user deleted");
         }
     );
 
@@ -409,4 +409,192 @@ function WhoHasIt() {
             $("#comd").html("ready");
         }
     );
+}
+
+function SetA() {
+
+    localStorage.setItem("myCat", "CatA");
+}
+
+function SetB() {
+
+    localStorage.setItem("myCat", "CatB");
+}
+
+function Retrieve() {
+
+    const cat = localStorage.getItem("myCat");
+    $("#thing").html(cat);
+
+}
+
+function Retrieve2() {
+
+    const us = localStorage.getItem("currentUser");
+    $("#thing2").html(us);
+
+}
+
+function LogIn() {
+
+    let userN = $('#userName').val();
+
+    var user;
+
+
+
+    axios.get('http://localhost:3000/users/' + userN).then(
+        (response) => {
+
+            if (response.data === 'not found') {
+
+                document.querySelector("#userPass").value = "NA";
+
+            }
+            else {
+
+                if (document.querySelector("#userPass").value == response.data.password)
+                {
+                    localStorage.setItem("currentUser", userN);
+                    window.location.href = 'index2.html';
+
+                }
+
+            }
+
+
+        }
+    );
+}
+
+function DeleteUser2() {
+
+    let userN = $('#userName').val();
+
+    var user;
+    $("#comd").html("wait");
+
+
+    axios.get('http://localhost:3000/users/' + userN).then(
+        (response) => {
+
+            if (response.data === 'not found') {
+
+                $("#comd").html("no such user");
+
+            }
+            else {
+
+                if (document.querySelector("#userPass").value == response.data.password) {
+
+                    DeleteUser(userN);
+
+                }
+                else {
+                    $("#comd").html("wrong password");
+                }
+
+            }
+
+
+        }
+    );
+}
+
+function RefreshTable() {
+
+    //$("#game-table tbody").remove(); 
+
+    //$('#game-table tbody').remove();
+
+    var table = document.getElementById("game-table");
+
+    //console.log(table.rows.length);
+
+    var numb = table.rows.length;
+
+    for (var i = numb-1; i >=1; i--) {
+
+        table.deleteRow(i);
+    }
+
+
+    //var header = table.createTHead();
+    //var row = header.insertRow(0);
+
+    //var cell00 = row.insertCell(0);
+    //cell00.innerHTML = "ID"; 
+    //var cell01 = row.insertCell(1);
+    //cell01.innerHTML = "NAME"; 
+    //var cell02 = row.insertCell(2);
+    //cell02.innerHTML = "GENRE"; 
+    //var cell03 = row.insertCell(3);
+    //cell03.innerHTML = "STATUS"; 
+
+
+    axios.get('http://localhost:3000/games' ).then(
+        (response) => {
+
+            if (response.data === 'not found') {
+
+            }
+            else {
+
+                var allgames = response.data;
+
+                for (var i = 0; i < allgames.length; i++) {
+
+                   // console.log(allgames[i].name);
+
+                    var row = table.insertRow(table.length);
+
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    var cell4 = row.insertCell(3);
+
+                    cell1.innerHTML = allgames[i].id;
+                    cell2.innerHTML = allgames[i].name;
+                    cell3.innerHTML = allgames[i].genre;
+                    cell4.innerHTML = allgames[i].status;
+
+                }
+   
+            }
+
+
+        }
+    );
+
+    //var row = table.insertRow(table.length);
+
+    //var cell1 = row.insertCell(0);
+    //var cell2 = row.insertCell(1);
+    //var cell3 = row.insertCell(2);
+
+    //var allgames = 
+
+
+    //cell1.innerHTML = "NEW game";
+    //cell2.innerHTML = "horror?";
+    //cell3.innerHTML = "yes"; 
+
+
+
+
+    //var table = document.getElementById("game-table");
+
+    //// Create an empty <tr> element and add it to the 1st position of the table:
+    //var row = table.insertRow(table.length);
+
+    //// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+    //var cell1 = row.insertCell(0);
+    //var cell2 = row.insertCell(1);
+    //var cell3 = row.insertCell(2);
+
+    //// Add some text to the new cells:
+    //cell1.innerHTML = "NEW game";
+    //cell2.innerHTML = "horror?"; 
+    //cell3.innerHTML = "yes"; 
+
 }

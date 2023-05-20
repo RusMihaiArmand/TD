@@ -11,7 +11,9 @@
     <script type="text/javascript" src="libs/axios.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
+
 
 <body>
     <!--<div id="app">
@@ -114,7 +116,8 @@
     <button onclick="testFunction()">Click me</button>
     <button onclick="testFunction2()">Click me TOO</button>-->
     <!--</br></br> </br></br>-->
-    <input id="gameId" type="text"> </br></br>
+    <!--these will be usefull later;-->
+    <!--<input id="gameId" type="text"> </br></br>
     <input id="gameName" type="text"></input> </br></br>
     <input id="gameGenre" type="text"></input> </br></br>
     <input id="gameStatus" type="text"></input> </br></br>
@@ -125,23 +128,41 @@
     <button onclick="UpdateGame()"> Update </button>
     <button onclick="DeleteGame()"> Del </button>
 
-    </br></br> </br></br>
-
-
-    <input id="userName" type="text"></input> </br></br>
-    <input id="userPass" type="text"></input> </br></br>
-    <input id="newuserPass" type="text"></input> </br></br>
-
-    <div id="comd"></div>
-    <button onclick="GetUser()"> Find user </button>
-    <button onclick="AddUser()"> Add user </button>
-    <button onclick="UpdateUser()"> Update </button>
-    <button onclick="DeleteUser()"> Del </button>
+    </br></br> </br></br>-->
 
 
 
 
-    </br></br> </br></br>
+    <div class="Log">
+        <div class="LogTitle">LOG IN</div> <br/>
+
+
+        <div class="label">Username</div>
+        <input id="userName" type="text"> <br /><br />
+
+        <div class="label">Password</div>
+        <input id="userPass" type="text"> <br /><br />
+
+        <div class="label">New password</div>
+        <input id="newuserPass" type="text"> <br /><br />
+
+
+        <div id="comd"></div>
+        <!--<button onclick="GetUser()"> Find user </button>-->
+        <button class="buttonS1" onclick="LogIn()"> LOG IN </button>
+        <button class="buttonS1" onclick="AddUser()"> SIGN UP </button> <br /><br />
+        <button class="buttonS1" onclick="UpdateUser()"> CHANGE PASSWORD </button>
+        <button class="buttonS1" onclick="DeleteUser2()"> DELETE ACCOUNT </button>
+
+
+
+    </div>
+
+
+
+
+    <!--these will be usefull later;-->
+    <!--</br></br> </br></br>
 
     <input id="borrowgameId" type="text"> </br></br>
     <input id="bnr">
@@ -149,7 +170,21 @@
     <button onclick="BorrowGame()"> Borrow </button>
     <button onclick="HowMany()"> Number of borrow </button>
     <button onclick="ReturnGame()"> Return </button>
-    <button onclick="WhoHasIt()"> Who </button>
+    <button onclick="WhoHasIt()"> Who </button>-->
+
+
+
+    <!--these will NOT be usefull later;-->
+    <!--</br></br> </br></br>
+    <div id="thing"> </div>
+
+    <button onclick="SetA()"> A </button>
+    <button onclick="SetB()"> B </button>
+    <button onclick="Retrieve()"> R </button>-->
+
+    <!--</br></br> </br></br>
+    <button onclick="window.location.href = 'index2.html';">HOME</button>-->
+
 
 
     <script src="src/app.js"></script>

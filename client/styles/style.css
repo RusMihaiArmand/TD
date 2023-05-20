@@ -50,11 +50,91 @@ body {
 
 
 
-.book-list {
-    border: 1px solid;
+.Log {
+    background-color: lightblue;
+    width: 500px;
+    
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto;
 }
 
-.delete {
-    background-color: #f3f3f3;
+
+.LogTitle {
+    color: white;
+    font-size: 30px;
+    font-weight: bolder;
+
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+.label {
+    display: inline;
+    color: black;
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+.buttonS1 {
+    box-shadow: 0px 0px 0px 2px #9fb4f2;
+    background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+    background-color: #7892c2;
+    border-radius: 18px;
+    border: 4px solid #4e6096;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 18px;
+    text-shadow: 0px 1px 0px #283966;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+table.gametab {
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #1C6EA4;
+    background-color: #8BDBEE;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+    table.gametab td, table.gametab th {
+        border: 2px solid #000000;
+        padding: 3px 2px;
+    }
+
+    table.gametab tbody td {
+        font-size: 15px;
+    }
+
+    table.gametab tr:nth-child(even) {
+        background: #8799F5;
+    }
+
+    table.gametab thead {
+        background: #1C6EA4;
+        background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+        background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+        background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+        border-bottom: 2px solid #444444;
+    }
+
+    table.gametab thead th {
+            font-size: 15px;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-align: center;
+            border-left: 2px solid #D0E4F5;
+        }
+
+
+    table.gametab thead th:first-child 
+    {
+        border-left: none;     
+    }
