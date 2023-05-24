@@ -336,7 +336,7 @@ function UpdateUser() {
 
     $("#comd").html("Wait");
     var obj = {
-        name: document.querySelector("#userName").value,
+        name: localStorage.getItem("currentUser"),
         password: document.querySelector("#userPass").value,
         newpassword: document.querySelector("#newuserPass").value
     }
@@ -402,9 +402,10 @@ function DeleteUserFinal(userN) {
             (response) => {
                 $("#comd").html("User deleted");
 
-                document.querySelector("#userName").value = "";
                 document.querySelector("#userPass").value = "";
                 document.querySelector("#newuserPass").value = "";
+
+                Back();
             }
         );
    
@@ -697,7 +698,7 @@ function LogIn() {
 
             if (response.data === 'not found') {
 
-                document.querySelector("#userPass").value = "NA";
+
                 $("#comd").html("User not found");
 
             }
@@ -709,7 +710,7 @@ function LogIn() {
                     if (userN === "admin")
                         window.location.href = 'AdminPage.html';
                     else
-                        window.location.href = 'index2.html';
+                        window.location.href = 'ListPage.html';
 
                 }
                 else {
@@ -725,7 +726,7 @@ function LogIn() {
 
 function DeleteUser2() {
 
-    let userN = $('#userName').val();
+    var userN = localStorage.getItem("currentUser");
 
     var user;
     $("#comd").html("wait");
@@ -889,7 +890,12 @@ function RefreshTable() {
 function Back() {
 
     localStorage.setItem("currentUser", "");
-    window.location.href = 'index.html';
+    window.location.href = 'LogInPage.html';
+}
+
+function Back2() {
+
+    window.location.href = 'ListPage.html';
 }
 
 function ShowBorrowed() {
@@ -914,4 +920,14 @@ function ShowBorrowed() {
 
     );
 
+}
+
+function GoToSignUp() {
+
+    window.location.href = 'SignUpPage.html';
+}
+
+function Managing() {
+
+    window.location.href = 'ManagePage.html';
 }
